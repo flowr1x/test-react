@@ -1,8 +1,9 @@
-import { type ChangeEvent, useEffect, useRef, useState } from 'react'
+import { type ChangeEvent, useRef, useState } from 'react'
 import getCaretCoordinates from 'textarea-caret'
 import type { DropdownPosition, User } from '../types.tsx'
 import MentionDropdown from './mention-dropdown.tsx'
 import useClickOutside from '../hooks/useClickOutside.ts'
+import React from 'react'
 
 interface Props {
   users: User[]
@@ -68,7 +69,7 @@ function MentionTextarea({ users }: Props) {
     setTextareaValue(value)
   }
 
-  const onKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
+  const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Escape') {
       setShowDropdown(false)
     }
